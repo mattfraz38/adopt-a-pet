@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}| {{ pet_type | title }}{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('welcome.index') }}">Back to All Animals</a>
+
+<h1>{{ pet_type | title }}</h1>
+
+{% for pet in pets[pet_type] %}
+  <p><a href="{{ url_for('pet.get_pet', pet_type=pet_type, pet_id=loop.index0) }}">{{ pet.name }}</a></p>
+{% endfor %}
+
+{% endblock %}

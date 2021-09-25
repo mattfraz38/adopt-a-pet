@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}| {{ pet_details.name | title }}{% endblock %}
+
+{% block content %}
+
+<a href="{{ url_for('animals.get_animals', pet_type=pet_type) }}">Back to {{ pet_type.capitalize() }}</a> 
+| 
+<a href="{{ url_for('welcome.index') }}">Back to All Animals</a>
+
+<h1>{{pet_details.name | title }}</h1>
+<p>Age: {{ pet_details.age }}</p>
+<p>Breed: {{ pet_details.breed }}</p>
+<p>{{ pet_details.description }}</p>
+<img src="{{ pet_details.url }}" alt="">
+
+
+
+{% endblock %}

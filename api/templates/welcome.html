@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Welcome to the Adopt A Pet Online Site!</h1>
+
+<p>You look like a dog person.</p>
+
+<p>Browse through the links below to find your new furry friend</p>
+
+<ul>
+  {% for pet in pets %}
+  <li><a href="{{ url_for('animals.get_animals', pet_type=pet) }}">{{ pet.capitalize() }}</a></li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
